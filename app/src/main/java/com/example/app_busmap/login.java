@@ -45,7 +45,7 @@ public class login extends AppCompatActivity {
 
                 // Verifica se o campo Usuário está vazio
                 if (TextUtils.isEmpty(usuario)) {
-                    editUser.setError("Usuário é obrigatório");
+                    editUser.setError("Email é obrigatório");
                     editUser.requestFocus();
                     return;
                 }

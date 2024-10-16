@@ -5,15 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class cadastro extends AppCompatActivity {
 
-    private EditText editNome, editUser, editEmail, editSenha;
-    private Button btnCadastrar;
+    EditText editNome, editUser, editEmail, editSenha;
+    Button btnCadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +23,16 @@ public class cadastro extends AppCompatActivity {
 
         // Referências para os EditTexts e o botão
         editNome = findViewById(R.id.edit_nome);
-        editUser = findViewById(R.id.edit_user);
+        editUser = findViewById(R.id.editEmail);
         editEmail = findViewById(R.id.edit_email);
-        editSenha = findViewById(R.id.edit_senha);
+        editSenha = findViewById(R.id.editSenha);
         btnCadastrar = findViewById(R.id.btn_cadastrar);
+
+        if (res <=0){
+            Snackbar.make(btnCadastrar, "Dados não inseridos!", Snackbar.LENGTH_LONG).show();
+        } else {
+            Snackbar.make(btnCadastrar, "Dados Cadastrados com sucesso", Snackbar.LENGTH_LONG).show();
+        }
 
         // Adiciona listeners para validações dos campos
         addValidationListeners();
